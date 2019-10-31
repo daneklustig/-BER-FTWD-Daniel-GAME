@@ -10,7 +10,7 @@ class Potion {
 
     preload() {
         this.img = loadImage("assets/potion.png")
-        drinkPotionSound = loadSound('/assets/sounds/166188__drminky__potion-drink-regen.wav')
+        drinkPotionSound = loadSound('assets/sounds/166188__drminky__potion-drink-regen.wav')
     }
 
     draw() {
