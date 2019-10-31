@@ -33,9 +33,9 @@ class Game {
         this.background.preload();
         this.moon.preload();
         this.witch.preload();
-        music = loadSound('/assets/sounds/Spooky _ Halloween Background Music.mp3')
-        treasureBox = loadImage('/assets/treasurebox.png')
-        potionScore = loadImage('/assets/potion.png')
+        music = loadSound('assets/sounds/Spooky _ Halloween Background Music.mp3')
+        treasureBox = loadImage('assets/treasurebox.png')
+        potionScore = loadImage('assets/potion.png')
         //this.bat.preload();
         font = loadFont('assets/fonts/DragonbonesBB_reg.ttf')
 
@@ -150,10 +150,16 @@ class Game {
                 if (this.batCollision(bat, this.witch)) {
                     // console.log("GAME OVER bat collision");
                     noLoop();
-                    // sleep(5000);
-                    timer=0;
+                    sleep(5000);
+                    timer = 0;
                     mode = 2;
                     batSound.stop();
+                    this.houses = [];
+                    this.potions = [];
+                    this.bats = [];
+                    this.coins = [];
+                    this.ghosts = [];
+
                 }
             }
         )
