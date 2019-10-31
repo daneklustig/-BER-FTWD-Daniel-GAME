@@ -13,7 +13,7 @@ class Game {
         this.background = new Background();
         this.moon = new Moon();
         this.witch = new Witch();
-        this.ground = new Ground();
+        // this.ground = new Ground();
         // this.bat = new Bat(50);
 
         this.arrHouses = ['house1', 'house2', 'house3', 'house4', 'house5']
@@ -57,7 +57,7 @@ class Game {
         this.background.draw();
         this.moon.draw();
         this.witch.draw();
-        this.ground.draw();
+        // this.ground.draw();
 
         // console.log(timer);
 
@@ -83,6 +83,9 @@ class Game {
         if (this.witch.y + this.witch.height > HEIGHT) {
             console.log('GAME OVER')
             noLoop();
+            sleep(5000);
+            timer = 0;
+            mode = 2;
         }
 
         if (frameCount % 800 === 0) {
@@ -153,12 +156,6 @@ class Game {
                     sleep(5000);
                     timer = 0;
                     mode = 2;
-                    batSound.stop();
-                    this.houses = [];
-                    this.potions = [];
-                    this.bats = [];
-                    this.coins = [];
-                    this.ghosts = [];
 
                 }
             }
@@ -185,6 +182,9 @@ class Game {
                 if (this.houseCollision(house, this.witch)) {
                     console.log("GAME OVER");
                     noLoop();
+                    sleep(5000);
+                    timer = 0;
+                    mode = 2;
                 }
 
             })
@@ -239,6 +239,10 @@ class Game {
                 if (this.ghostCollision(ghost, this.witch)) {
                     console.log("GAME OVER ghost collision");
                     noLoop();
+                    ghostSound.stop();
+                    sleep(5000);
+                    timer = 0;
+                    mode = 2;
                 }
 
                 // if (this.itemCollection(ghost, this.witch)) {

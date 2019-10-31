@@ -96,17 +96,22 @@ function draw() {
 
     if (mode == 2) {
         loop()
+        batSound.stop()
+        drinkPotionSound.stop()
 
         image(bgEndVideo, 0, 0)
         if (timer > 0) {
             fill(255)
             textSize(70);
             text('game over', width - 100, 80)
+        }
+        if (timer > 1){
+            fill(255);
             textSize(50);
-            text(`your highest score: ${localStorage.getItem("score")}`, WIDTH - 100, 150)
+            text(`your highest score: ${highestScore()}`, WIDTH - 100, 150)
         }
 
-        if (timer > 3) {
+        if (timer > 2) {
             textSize(50);
             textAlign(CENTER, BOTTOM)
             fill(255)
@@ -131,6 +136,18 @@ function keyPressed() {
     if (keyCode === SPACE && mode === 2) {
         mode = 1
         timer = 0
+        game.houses = [];
+        game.potions = [];
+        game.bats = [];
+        game.coins = [];
+        game.ghosts = [];
+        game.witch.coins = 0;
+        game.witch.fuel = 30;
+        game.witch.x = 250;
+        game.witch.y = 120;
+        game.witch.velocityY = 0;
+        game.witch.velocityX = 0;
+        game.witch.gravity = 0.075;
     }
     if (keyCode === LEFT_ARROW) {
         game.witch.moveLeft();

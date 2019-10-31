@@ -3,7 +3,7 @@ class Witch {
         this.velocityY = 0;
         this.velocityX = 0;
         this.gravity = 0.075;
-        this.fuel = 30;
+        this.fuel = 31;
         this.coins = 0;
     }
 

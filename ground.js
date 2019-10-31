@@ -1,14 +1,14 @@
-class Ground {
-    constructor() {
+// class Ground {
+//     constructor() {
 
-    }
+//     }
 
-    draw() {
-        fill(0, 0, 0)
-        rect(0, height - 15, width, 15);
-    }
+//     draw() {
+//         fill(0, 0, 0)
+//         rect(0, height - 15, width, 15);
+//     }
 
-}
+// }
 
 // posible to make following 
 
