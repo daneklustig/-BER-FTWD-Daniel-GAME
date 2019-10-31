@@ -98,6 +98,7 @@ function draw() {
         loop()
         batSound.stop()
         drinkPotionSound.stop()
+        warningSound.stop()
 
         image(bgEndVideo, 0, 0)
         if (timer > 0) {
@@ -105,7 +106,7 @@ function draw() {
             textSize(70);
             text('game over', width - 100, 80)
         }
-        if (timer > 1){
+        if (timer > 1) {
             fill(255);
             textSize(50);
             text(`your highest score: ${highestScore()}`, WIDTH - 100, 150)
