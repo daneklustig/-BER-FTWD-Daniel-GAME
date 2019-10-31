@@ -4,7 +4,10 @@ let batSound;
 let ghostSound;
 let warningSound;
 let bgVideo;
+let bgEndVideo;
 let timer = 0;
+// let topScore = getItem("score")
+
 
 function preload() {
     //   console.log("preload");
@@ -17,8 +20,10 @@ function preload() {
     bgVideo.size(WIDTH, HEIGHT)
     bgVideo.volume(0);
     bgVideo.loop();
-    // bgVideo = loadVideo('assets/bgvideo.mp4')
-
+    bgEndVideo = createVideo('assets/endvideo.mp4')
+    bgEndVideo.hide();
+    bgEndVideo.volume(0);
+    bgEndVideo.loop();
 }
 
 function setup() {
@@ -40,7 +45,7 @@ function draw() {
     }
 
     if (mode == 0) {
-        image(bgVideo, 10, 10)
+        image(bgVideo, 0, 0)
 
         if (frameCount > 200 && frameCount < 440) {
             textSize(50);
@@ -89,8 +94,28 @@ function draw() {
         game.draw();
     }
 
+    if (mode == 2) {
+        loop()
 
+        image(bgEndVideo, 0, 0)
+        if (timer > 0) {
+            fill(255)
+            textSize(70);
+            text('game over', width - 100, 80)
+            textSize(50);
+            text(`your highest score: ${localStorage.getItem("score")}`, WIDTH - 100, 150)
+        }
+
+        if (timer > 3) {
+            textSize(50);
+            textAlign(CENTER, BOTTOM)
+            fill(255)
+            text("press spacebar to play again", WIDTH / 2, HEIGHT);
+        }
+    }
 }
+
+
 
 
 function keyPressed() {
@@ -103,6 +128,10 @@ function keyPressed() {
             game.witch.moveUp();
         }
     }
+    if (keyCode === SPACE && mode === 2) {
+        mode = 1
+        timer = 0
+    }
     if (keyCode === LEFT_ARROW) {
         game.witch.moveLeft();
     }
@@ -112,14 +141,11 @@ function keyPressed() {
 }
 
 
-// function keyPressed() {
-//     if (keyCode === LEFT_ARROW && witch.x > 0) {
-//       witch.moveLeft();
-//     } else if (keyCode === RIGHT_ARROW && witch.col < WIDTH - SIDE) {
-//       witch.moveRight();
-//     } else if (keyCode === UP_ARROW && witch.y > 0) {
-//       witch.moveUp();
-//     } else if (keyCode === DOWN_ARROW && witch.y < HEIGHT - SIDE) {
-//       witch.moveDown();
-//     }
-//   }
+function sleep(milliseconds) {
+    var start = new Date().getTime();
+    for (var i = 0; i < 1e7; i++) {
+        if ((new Date().getTime() - start) > milliseconds) {
+            break;
+        }
+    }
+}

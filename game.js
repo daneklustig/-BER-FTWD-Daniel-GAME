@@ -68,10 +68,14 @@ class Game {
         fill(255);
         text(this.witch.coins, WIDTH - 100, 50)
         text(this.witch.fuel, WIDTH - 100, 100)
-        
 
+        // if (timer === 5) {
+        //     sleep(5000);
+        //     mode = 2;
+        //     timer = 0;
+        // }
 
-        if (this.witch.fuel <= 7){
+        if (this.witch.fuel <= 7) {
             fill(255, 0, 0)
             text(this.witch.fuel, WIDTH - 100, 100)
         }
@@ -83,7 +87,7 @@ class Game {
 
         if (frameCount % 800 === 0) {
             coinCounter = -3
-            
+
         }
 
         if (frameCount % 2000 === 0) {
@@ -118,7 +122,7 @@ class Game {
 
 
 
-        if (timer > 13 && frameCount % 30 === 0) {
+        if (timer > 10 && frameCount % 30 === 0) {
             let randomN = Math.floor(Math.random() * (150 - 50) + 50)
             while (batStarter < 4) {
                 const bat = new Bat(randomN + Math.floor(Math.random() * (75 - 25) + 25), (40 * batStarter));
@@ -144,8 +148,12 @@ class Game {
                 // }
 
                 if (this.batCollision(bat, this.witch)) {
-                    console.log("GAME OVER bat collision");
+                    // console.log("GAME OVER bat collision");
                     noLoop();
+                    // sleep(5000);
+                    timer=0;
+                    mode = 2;
+                    batSound.stop();
                 }
             }
         )
@@ -200,7 +208,7 @@ class Game {
             }
         )
 
-        if (timer > 10 && frameCount % 500 === 0) {
+        if (timer > 15 && frameCount % 600 === 0) {
             const ghost = new Ghost(Math.floor(Math.random() * (450 - 150 + 1)) + 150)
             ghost.preload();
             ghostSound.play();
