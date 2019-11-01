@@ -41,7 +41,7 @@ function draw() {
     clear();
     if (frameCount % 60 === 0) {
         timer++
-        console.log(timer)
+        // console.log(timer)
     }
 
     if (mode == 0) {
@@ -96,9 +96,9 @@ function draw() {
 
     if (mode == 2) {
         loop()
-        batSound.stop()
-        drinkPotionSound.stop()
-        warningSound.stop()
+        if (batSound.isPlaying()) batSound.stop()
+        if (drinkPotionSound.isPlaying()) drinkPotionSound.stop()
+        if (warningSound.isPlaying()) warningSound.stop()
 
         image(bgEndVideo, 0, 0)
         if (timer > 0) {

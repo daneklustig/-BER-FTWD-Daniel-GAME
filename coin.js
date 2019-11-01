@@ -1,16 +1,17 @@
 let collectCoinSound;
-
+let coin
 class Coin {
     constructor(y, x) {
         this.x = WIDTH * 1.2 + x;
         this.y = y;
         this.width = 30
         this.height = 30
+        this.coin = coin
     }
 
     preload() {
         this.coin = loadAnimation('assets/coin1.png', 'assets/coin6.png')
-        collectCoinSound = loadSound('assets/sounds/166184__drminky__retro-coin-collect.wav')
+        // collectCoinSound = loadSound('assets/sounds/166184__drminky__retro-coin-collect.wav')
     }
 
     draw() {

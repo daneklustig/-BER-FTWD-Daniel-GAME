@@ -7,7 +7,7 @@ let potionScore;
 
 class Game {
     constructor() {
-        console.log("game constructor");
+        // console.log("game constructor");
         // background
         // this.background = new Background();
         this.background = new Background();
@@ -38,7 +38,7 @@ class Game {
         potionScore = loadImage('assets/potion.png')
         //this.bat.preload();
         font = loadFont('assets/fonts/DragonbonesBB_reg.ttf')
-
+        collectCoinSound = loadSound('assets/sounds/166184__drminky__retro-coin-collect.wav')
     }
 
     setup() {
@@ -81,7 +81,7 @@ class Game {
         }
 
         if (this.witch.y + this.witch.height > HEIGHT) {
-            console.log('GAME OVER')
+            // console.log('GAME OVER')
             noLoop();
             sleep(5000);
             timer = 0;
@@ -180,7 +180,7 @@ class Game {
                 }
 
                 if (this.houseCollision(house, this.witch)) {
-                    console.log("GAME OVER");
+                    // console.log("GAME OVER");
                     noLoop();
                     sleep(5000);
                     timer = 0;
@@ -237,7 +237,7 @@ class Game {
                 }
 
                 if (this.ghostCollision(ghost, this.witch)) {
-                    console.log("GAME OVER ghost collision");
+                    // console.log("GAME OVER ghost collision");
                     noLoop();
                     ghostSound.stop();
                     sleep(5000);
@@ -303,7 +303,7 @@ class Game {
         ) {
             return false;
         }
-        console.log(witch, bat)
+        // console.log(witch, bat)
         return true;
     }
 
@@ -320,7 +320,7 @@ class Game {
         ) {
             return false;
         }
-        console.log(witch, ghost)
+        // console.log(witch, ghost)
         return true;
     }
 
