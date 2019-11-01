@@ -39,6 +39,7 @@ class Game {
         //this.bat.preload();
         font = loadFont('assets/fonts/DragonbonesBB_reg.ttf')
         collectCoinSound = loadSound('assets/sounds/166184__drminky__retro-coin-collect.wav')
+        drinkPotionSound = loadSound('assets/sounds/166188__drminky__potion-drink-regen.wav')
     }
 
     setup() {

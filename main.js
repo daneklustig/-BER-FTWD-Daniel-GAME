@@ -134,7 +134,7 @@ function keyPressed() {
             game.witch.moveUp();
         }
     }
-    if (keyCode === SPACE && mode === 2) {
+    if (keyCode === SPACE && mode === 2 && timer > 2) {
         mode = 1
         timer = 0
         game.houses = [];
